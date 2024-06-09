@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli:wght@300;400;600&display=swap");
+
+:root {
+    --transition-speed: 0.7s;
+    --panel-hover-color: rgba(0, 0, 0, 0.5); /* Dark overlay color on hover */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+    width: 90vw;
+    height: 80vh;
+}
+
+.panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all var(--transition-speed) ease-in-out;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    flex: 1;
+    min-width: 150px;
+    opacity: 0.5;
+}
+
+.panel h3 {
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in 0.4s;
+    margin: 0;
+}
+
+.panel.active {
+    flex: 5;
+    opacity: 1;
+    filter: brightness(1);
+}
+
+.panel.active h3 {
+    opacity: 1;
+}
+
+.panel:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: brightness(0.5);
+}
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+    .panel {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100vw;
+    }
+    .panel {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100vw;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .panel {
+        height: 30vh;
+    }
+}
